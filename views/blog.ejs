@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+
+<%- include ./partials/header.ejs %>	
+
+		<body>
+			<div class="jumbotron">
+				<div class="container-fluid">
+					<h1>Blog Posts</h1>
+			
+		
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Title</th>
+									<th>Author</th>
+									<th>Content</th>
+								</tr>
+							</thead>
+							<tbody id="blogTable">
+									<% for(var i = 0; i < blogs.length; i++) { %>   
+								<!-- bears is found on the server.js app.get (finding all bears) -->
+								<tr id="<%= blogs[i]._id %>">
+									<td> <%= blogs[i].image %> </td>
+									<td> <%= blogs[i].title %> </td>
+									<td> <%= blogs[i].author %> </td>
+									<td> <%= blogs[i].content %> </td>
+									<td><button type="button" class="btn btn-warning" id="deleteBlog">Delete</button></td>
+								</tr>
+								<% } %>
+			
+							</tbody>
+						</table>
+				
+
+						<form action="/api/blog" method="POST" role="form">   
+							<legend></legend>
+								<div class="form-group">
+									<label for="">Image</label>
+									<input required name="image" input type="text" class="" id="image" placeholder="Image">
+								</div>
+						
+							<legend></legend>
+								<div class="form-group">
+									<label for="">Title</label>
+								 	<input required name="title" input type="text" class="form-group" id="title" placeholder="title">
+								</div>
+						
+						
+							<legend></legend>
+								<div class="form-group">
+									<label for="">Author</label>
+									<input required name="author" input type="text" class="form" id="author" placeholder="author">
+								</div>
+							
+
+							<legend></legend>
+								<div class="form-group">
+									<label for="">Content</label>
+									<input required name="content" input type="text" class="" id="content" placeholder="content">
+								</div>
+
+							<button type="submit" class="btn btn-primary" id="addBlog">Submit</button>
+						</form>
+			</div>
+		</body>
+	</html>
+
+	
+		
+	
+		

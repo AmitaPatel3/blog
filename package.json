@@ -1,19 +1,10 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "blog.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AmitaPatel3/blog.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AmitaPatel3/blog/issues"
-  },
-  "homepage": "https://github.com/AmitaPatel3/blog#readme"
+  "name": "node-api",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "ejs": "^2.4.1",
+    "express": "~4.0.0",
+    "mongoose": "~3.6.13"
+  }
 }

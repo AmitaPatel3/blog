@@ -1,0 +1,135 @@
+.navbar-brand-Amita {
+	
+	font-size: 70px;
+	color: black;
+	font-weight: bold;
+	font-family: 'Dancing Script';
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+.tron-color {
+	background-color: #FF4040;
+	height: 420px;
+	margin-bottom:0;
+	background: url('http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/lightbulbs-primary.png');
+}
+
+.inspiration {
+	color: white;
+	font-size: 45px;
+	line-height: 12em;
+	font-weight: 800;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.techtips {
+	color: white;
+	font-size: 500px;
+	line-height: 0;
+	font-weight: 800;
+	font-family: 'PT Sans', sans-serif;
+	text-align: left;
+
+}
+
+.nana {
+	color: black;
+	font-size: 45px;
+	font-family : 'PT Sans', sans-serif;
+}
+
+.navvy {
+	font-size: 40px;
+	color: black;
+	font-weight: bold;
+	font-family: Pacifico;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+.mainnavbar {
+	background: 4149bf;
+	padding-top: 2%;
+	margin-bottom: 2;
+}
+
+.container-form {
+	background-color: #F5D76E;
+}
+
+.techtips {
+margin-left: auto;
+margin-right: auto;
+}
+
+h4 { 
+	font-family: Pacifico;
+    color: white;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 200;
+    font-style: normal;
+	font-variant: normal;
+	line-height: 50px;
+}
+
+.input-mysize {
+	width: 10em;
+	height: 4em;
+}
+
+.mybtn {
+	color: dark blue;
+	   width: 10em;  
+	   height: 4em;
+
+}
+
+.bp1 {
+	color: black;
+}
+
+.egg1 {
+	color: blue;
+	height: 500px;
+	background: url('');
+}
+
+
+.block2 {
+	background-color: red;
+	height: 500px;
+	background: url('');
+}
+
+.block2date {
+	font-size: 80px;
+	font-family: georgia;
+	font-style: italic;
+	font-weight: lighter;
+	color: white;
+}
+
+
+.block3 {
+	background-color: red;
+	height: 500px;
+	background: url('');
+}
+
+.block4 {
+	background-color: red;
+	height: 500px;
+	background: url('');
+}
+
+.block5 {
+	background-color: red;
+	height: 500px;
+	background: url('');
+}
