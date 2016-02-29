@@ -4,6 +4,12 @@
 <%- include ./partials/header.ejs %>	
 
 		<body>
+
+	<% if(user.local){ %>
+		<%= user.local.email %>
+	<% } else { %>
+		<%= user %>
+	<% } %>
 			
 
 			<div class='container-fluid'>

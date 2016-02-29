@@ -46,7 +46,8 @@ app.use(function(req, res, next) {
 app.set('view engine', 'ejs'); //we are configuring our app--telling our app how to handle this function--view our engine using ejs
 
 app.get('/', function(req, res){  //we are then saying, app, here's the function--render the index--do blog.find 
-	res.render('index', {title: 'welcome to my blog'})				//linking to index.ejs
+	var user = req.user || "no user";
+	res.render('index', {user: user});				//linking to index.ejs
 });
 
 
