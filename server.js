@@ -4,15 +4,44 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blog');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 var blogRouter = require('./routes/blogs');
-
 var Blog = require('./models/blog');
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(session({											//configuring our app to tell it to use passport
+ secret: 'ilovescotchscotchyscotchscotch'
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(session({
+ cookie: {
+   maxAge: 60000
+ }
+}));
+
+app.use(flash());
+
+require('./config/passport')(passport);
+// routes ======================================================================
+require('./routes/user.js')(app, passport);
+
 app.use(express.static('public')); //tells our server that everything in the folder 'public' is served as static files
+
+//need next for using middleware--tells it to go to next//this will be activated every time there is a user
+app.use(function(req, res, next) { 
+	var user = req.user || "no user";
+	console.log(user);
+	next();
+});
+
 
 app.set('view engine', 'ejs'); //we are configuring our app--telling our app how to handle this function--view our engine using ejs
 
@@ -69,6 +98,8 @@ router.get('/', function(req, res) {
 
 
 app.use('/api', blogRouter);  //this states that fill in api after //
+
+
 
 
 app.listen(port, function() {
