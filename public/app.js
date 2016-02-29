@@ -1,5 +1,6 @@
-var deleteBlog = function() {
-
+var deleteBlog = function(event) {
+	event.preventDefault();
+	console.log('hello');
 	var id = $(event.target).closest('tr').attr('id');  
 	var blog = $(event.target).closest('tr');
 
@@ -15,47 +16,49 @@ var deleteBlog = function() {
 	}
 }
 
-$('.deleteBlog').on('click', deleteBlog);
 
+
+$('.deleteBlog').on('click',deleteBlog)
 
 var addBlog = function(event) {
-event.preventDefault();
+	event.preventDefault();
 
-var image = $('#image').val();
-var title = $('#title').val();
-var author = $('#author').val();
-var content = $('#content').val();
-var $table = $('#blogTable');
+	var image = $('#image').val();
+	var title = $('#title').val();
+	var author = $('#author').val();
+	var content = $('#content').val();
+	var $table = $('#blogTable');
 
-var blog = {};
+	var blog = {};
 
-blog.image = image;
-blog.title = title;
-blog.author = author;
-blog.content = content;
+	blog.image = image;
+	blog.title = title;
+	blog.author = author;
+	blog.content = content;
 
-$.ajax({
-	url: 'api/blog/',
-	method: 'POST',
-	data: blog
-}).done(function(data) {
-	console.log('I posted a blog!', data);
+	$.ajax({
+		url: 'api/blog/',
+		method: 'POST',
+		data: blog
+	}).done(function(data) {
+		console.log('I posted a blog!', data);
 
-	$table.append ('<tr id=' + data._id + '> \
-                    <td>' + data.image + '</td> \
-                    <td>' + data.title + '</td> \
-                    <td>' + data.author + '</td>\
-                     <td>' + data.content + '</td>\
-                   <td><button type="button" class="btn btn-warning" id="deleteBlog">Delete</button></td>'
-   );
-});
+		$table.append ('<tr id=' + data._id + '> \
+	                    <td>' + data.image + '</td> \
+	                    <td>' + data.title + '</td> \
+	                    <td>' + data.author + '</td>\
+	                     <td>' + data.content + '</td>\
+	                   <td><button type="button" class="btn btn-warning deleteBlog">Delete</button></td>'
+	   );
+	});
 
-$('#image').val('');
-$('#title').val('');
-$('#author').val('');
-$('#content').val('');
-
+	$('#image').val('');
+	$('#title').val('');
+	$('#author').val('');
+	$('#content').val('');
 }
+
+
 
 $('#addBlog').on('click', addBlog);
 

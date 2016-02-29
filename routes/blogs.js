@@ -24,7 +24,7 @@ router.route('/blog')				//all these routers are /api routers--look at server.js
 			if(err){
 				console.log(err)
 			} else {
-				res.json(blog)				//returing the bear in json format
+				res.redirect('/blog')				//returing the bear in json format
 											//save the bear adn tell me if it worked or not
 
 			}									//we are creating our resources/bear is our data which is one of our resource
