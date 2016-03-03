@@ -9,14 +9,14 @@ router.route('/blog')				//all these routers are /api routers--look at server.js
 	.post(function(req,res) {							//creates a Bear
 									//get, post, delete is an http verb
 
+var user = req.user || "no user";		//"no user--make sure it doesn't break if there isn't a user"
+
 		var blog = new Blog();		//constructing a new Bear
 
-	
 		blog.title = req.body.title;			//coming from our request--from our form or from our Postman--our data lives in the "body--which is a method of request"
 		blog.image = req.body.image;
 		blog.content = req.body.content;
-		blog.author = req.body.author;
-		blog.date = req.body.date;
+		blog.author = req.user._id || "56d4b62ac452950ac3b15f82";
 
 		blog.save(function(err,blog) {   //.save is a mongoose.model.save
 
@@ -33,8 +33,10 @@ router.route('/blog')				//all these routers are /api routers--look at server.js
 	})
 		
 
-	.get(function(req,res) {							//find all bears--finding the entire collection
-		Blog.find(function(err,blogs) {
+	.get(function(req,res) {									//find all bears--finding the entire collection
+		Blog.find()
+		.populate('author')
+		.exec(function(err, blogs) {
 			if(err) {
 				console.log(err)
 			} else {

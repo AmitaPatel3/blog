@@ -5,7 +5,7 @@ var BlogSchema = new Schema({  //it's a constructor function--making a schema li
 	title: String,
 	image: String,
 	content: String,
-	author: String,
+	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	date: {type: Date, default: Date.now}
 		//don't put a comma at the end of the Schema object
 });

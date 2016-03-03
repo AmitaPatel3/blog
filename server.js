@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blog');
 var session = require('express-session');
@@ -10,8 +9,9 @@ var flash = require('connect-flash');
 
 var blogRouter = require('./routes/blogs');
 var Blog = require('./models/blog');
+var tweetRoutes = require('./routes/tweets'); //defining variable tweetRoutes to tweets routes
 
-
+app.set('view engine', 'ejs'); //we are configuring our app--telling our app how to handle this function--view our engine using ejs
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,7 +27,7 @@ app.use(session({
  }
 }));
 
-app.use(flash());
+app.use(flash());			//what is this?
 
 require('./config/passport')(passport);
 // routes ======================================================================
@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.set('view engine', 'ejs'); //we are configuring our app--telling our app how to handle this function--view our engine using ejs
+
 
 app.get('/', function(req, res){  //we are then saying, app, here's the function--render the index--do blog.find 
 	var user = req.user || "no user";
@@ -74,6 +74,10 @@ app.get('/portfolio', function(req,res) {
 	res.render('portfolio', {title: 'welcome to portfolio'})
 });
 
+app.get('/social', function(req,res) {
+	res.render('social', {title: 'welcome to social'})
+});
+
 
 app.get('/about', function(req,res){				//testing if we are linked
 	var data = {};									
@@ -97,10 +101,8 @@ router.get('/', function(req, res) {
 });
 
 
-
 app.use('/api', blogRouter);  //this states that fill in api after //
-
-
+app.use('/api/tweets/', tweetRoutes); 
 
 
 app.listen(port, function() {

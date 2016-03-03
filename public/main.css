@@ -133,3 +133,20 @@ h4 {
 	height: 500px;
 	background: url('');
 }
+
+.my-img {
+	 width: 200px;
+    height: auto;
+}
+
+.keyword-social {
+	height: 100px;
+}
+
+.tweetform {
+	align: left;
+}
+
+.socialtron {
+	background-color: #000033;
+}
